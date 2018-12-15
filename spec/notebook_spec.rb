@@ -22,4 +22,12 @@ describe Notebook do
       expect { notebook.see_title_list }.to output("My first note\nMy second note\n").to_stdout
     end
   end
+
+  describe "#select_note" do
+    it "shows title and body of note selected by user" do
+      notebook.add_note('My first note', 'This is my first note')
+      notebook.add_note('My second note', 'This is my second note')
+      expect { notebook.select_note(1) }.to output("My second note\nThis is my second note\n").to_stdout
+    end
+  end
 end

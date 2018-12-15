@@ -13,4 +13,9 @@ class Notebook
   def see_title_list
     saved_notes.each { |note| puts note[:title] }
   end
+
+  def select_note(note)
+    puts saved_notes[note][:title]
+    puts saved_notes[note][:body]
+  end
 end
