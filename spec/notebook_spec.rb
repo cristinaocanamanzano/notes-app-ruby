@@ -39,7 +39,7 @@ describe Notebook do
 
     describe '#select_note' do
       it 'shows title and body of note selected by user' do
-        expect { notebook.select_note(1) }.to output("My second note\nThis is my second note\n").to_stdout
+        expect { notebook.select_note(1) }.to output("My first note\nThis is my first note\n").to_stdout
       end
     end
   end

@@ -18,8 +18,8 @@ class Notebook
   end
 
   def select_note(note)
-    puts saved_notes[note].title
-    puts saved_notes[note].body
+    puts saved_notes[note - 1].title
+    puts saved_notes[note - 1].body
   end
 
   private
