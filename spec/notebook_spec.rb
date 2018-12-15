@@ -14,4 +14,12 @@ describe Notebook do
       expect(notebook.add_note('My first note', 'This is my first note')).to eq 'Note saved!'
     end
   end
+
+  describe "#see_title_list" do
+    it "prints a list of note titles to the screen" do
+      notebook.add_note('My first note', 'This is my first note')
+      notebook.add_note('My second note', 'This is my second note')
+      expect { notebook.see_title_list }.to output("My first note\nMy second note\n").to_stdout
+    end
+  end
 end

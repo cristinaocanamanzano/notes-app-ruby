@@ -9,4 +9,8 @@ class Notebook
     saved_notes << {title: title, body: body}
     return 'Note saved!'
   end
+
+  def see_title_list
+    saved_notes.each { |note| puts note[:title] }
+  end
 end
