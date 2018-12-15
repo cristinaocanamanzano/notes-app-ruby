@@ -6,8 +6,8 @@ class Notebook
   end
 
   def add_note(title, body)
-    saved_notes << {title: title, body: body}
-    return 'Note saved!'
+    saved_notes << { title: title, body: body }
+    'Note saved!'
   end
 
   def see_title_list
