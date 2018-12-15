@@ -9,7 +9,7 @@ class Notebook
   end
 
   def add_note(title, body)
-    saved_notes << note_class.new(title, body)
+    save_note(title, body)
     'Note saved!'
   end
 
@@ -20,5 +20,11 @@ class Notebook
   def select_note(note)
     puts saved_notes[note].title
     puts saved_notes[note].body
+  end
+
+  private
+
+  def save_note(title, body)
+    saved_notes << note_class.new(title, body)
   end
 end
