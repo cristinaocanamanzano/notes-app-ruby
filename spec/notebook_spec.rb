@@ -45,11 +45,13 @@ describe Notebook do
     end
 
     describe '#select_note' do
-      it 'shows title and body of note selected by user' do
-        expect { notebook.select_note(1) }.to output("My first note\nThis is my first note\n").to_stdout
+      it 'calls print_selected_note method on note printer' do
+        expect(note_printer).to receive(:print_selected_note).with(notebook.saved_notes, 1)
+        notebook.select_note(1)
       end
-      it 'shows title and body of another note selected by user' do
-        expect { notebook.select_note(2) }.to output("My second note\nThis is my second note\n").to_stdout
+      it 'prints value returned by print_selected_note method' do
+        expect(note_printer).to receive(:print_selected_note).with(notebook.saved_notes, 1).and_return('Note title and body')
+        notebook.select_note(1)
       end
     end
   end

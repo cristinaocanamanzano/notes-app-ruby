@@ -20,8 +20,7 @@ class Notebook
   end
 
   def select_note(note)
-    puts saved_notes[note - 1].title
-    puts saved_notes[note - 1].body
+    note_printer.print_selected_note(saved_notes, note)
   end
 
   private
