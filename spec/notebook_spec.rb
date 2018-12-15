@@ -1,10 +1,11 @@
 require 'notebook'
 
 describe Notebook do
-  subject(:notebook) { described_class.new(note_class) }
+  subject(:notebook) { described_class.new(note_class, note_printer) }
   let(:note_class) { double :note_class }
   let(:first_note) { double :first_note, title: 'My first note', body: 'This is my first note' }
   let(:second_note) { double :second_note, title: 'My second note', body: 'This is my second note' }
+  let(:note_printer) { double :note_printer, print_note_titles: 'Note titles list', print_selected_note: 'Note title and body' }
 
   context 'when adding one note' do
     describe '#add_note' do
@@ -32,8 +33,14 @@ describe Notebook do
     end
 
     describe '#see_title_list' do
-      it 'prints a list of note titles to the screen' do
-        expect { notebook.see_title_list }.to output("My first note\nMy second note\n").to_stdout
+      it 'calls print_note_titles method on note printer' do
+        expect(note_printer).to receive(:print_note_titles).with(notebook.saved_notes)
+        notebook.see_title_list
+      end
+
+      it 'prints value returned by print_note_titles method' do
+        expect(note_printer).to receive(:print_note_titles).with(notebook.saved_notes).and_return('Note titles list')
+        notebook.see_title_list
       end
     end
 

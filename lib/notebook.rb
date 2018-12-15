@@ -1,11 +1,13 @@
 require 'note'
+require 'note_printer'
 
 class Notebook
-  attr_reader :saved_notes, :note_class
+  attr_reader :saved_notes, :note_class, :note_printer
 
-  def initialize(note_class = Note)
+  def initialize(note_class = Note, note_printer = Note_printer.new)
     @note_class = note_class
     @saved_notes = []
+    @note_printer = note_printer
   end
 
   def add_note(title, body)
@@ -14,7 +16,7 @@ class Notebook
   end
 
   def see_title_list
-    saved_notes.each { |note| puts note.title }
+    note_printer.print_note_titles(saved_notes)
   end
 
   def select_note(note)
