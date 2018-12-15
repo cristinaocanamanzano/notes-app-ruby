@@ -11,4 +11,13 @@ describe Note_printer do
       expect { note_printer.print_note_titles(notebook.saved_notes) }.to output("My first note\nMy second note\n").to_stdout
     end
   end
+
+  describe '#select_note' do
+    it 'shows title and body of note selected by user' do
+      expect { note_printer.print_selected_note(notebook.saved_notes, 1) }.to output("My first note\nThis is my first note\n").to_stdout
+    end
+    it 'shows title and body of another note selected by user' do
+      expect { note_printer.print_selected_note(notebook.saved_notes, 2) }.to output("My second note\nThis is my second note\n").to_stdout
+    end
+  end
 end
