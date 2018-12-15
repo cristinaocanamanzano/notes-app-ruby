@@ -1,3 +1,5 @@
+require 'note'
+
 class Notebook
   attr_reader :saved_notes, :note_class
 

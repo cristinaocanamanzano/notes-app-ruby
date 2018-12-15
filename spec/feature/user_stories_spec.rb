@@ -7,7 +7,7 @@ describe 'User stories' do
 
   it 'user can add a note with a title and a body' do
     expect(@notebook.add_note('My first note', 'This is my first note')).to eq 'Note saved!'
-    expect(@notebook.saved_notes).to eq [{ title: 'My first note', body: 'This is my first note' }]
+    expect(@notebook.saved_notes[0]).to be_a(Note)
   end
 
   it 'user can see a list of all note titles' do
