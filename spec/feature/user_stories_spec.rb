@@ -11,6 +11,7 @@ describe 'User stories' do
   end
 
   it 'user can see a list of all note titles' do
+    expect { @notebook.see_title_list }.to raise_error('No notes have been saved yet')
     @notebook.add_note('My first note', 'This is my first note')
     @notebook.add_note('My second note', 'This is my second note')
     expect { @notebook.see_title_list }.to output("My first note\nMy second note\n").to_stdout

@@ -1,5 +1,6 @@
 class Note_printer
   def print_note_titles(notes)
+    raise 'No notes have been saved yet' if notes.empty?
     notes.each { |note| puts note.title }
   end
 

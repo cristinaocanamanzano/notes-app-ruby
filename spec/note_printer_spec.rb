@@ -10,6 +10,10 @@ describe Note_printer do
     it 'prints a list of note titles to the screen' do
       expect { note_printer.print_note_titles(notebook.saved_notes) }.to output("My first note\nMy second note\n").to_stdout
     end
+
+    it 'informs user that no notes have been added yet' do
+      expect { note_printer.print_note_titles([]) }.to raise_error('No notes have been saved yet')
+    end
   end
 
   describe '#select_note' do
