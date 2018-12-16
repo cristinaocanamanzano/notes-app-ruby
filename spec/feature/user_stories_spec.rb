@@ -21,5 +21,6 @@ describe 'User stories' do
     @notebook.add_note('My first note', 'This is my first note')
     @notebook.add_note('My second note', 'This is my second note')
     expect { @notebook.select_note(1) }.to output("My first note\nThis is my first note\n").to_stdout
+    expect { @notebook.select_note(3) }.to raise_error('That note does not exit, please select another number')
   end
 end

@@ -23,5 +23,8 @@ describe Note_printer do
     it 'shows title and body of another note selected by user' do
       expect { note_printer.print_selected_note(notebook.saved_notes, 2) }.to output("My second note\nThis is my second note\n").to_stdout
     end
+    it 'informs user that selected note does not exist' do
+      expect { note_printer.print_selected_note(notebook.saved_notes, 3) }.to raise_error('That note does not exit, please select another number')
+    end
   end
 end
