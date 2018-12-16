@@ -10,11 +10,18 @@ describe Notebook do
     describe '#add_note' do
       before do
         allow(note_class).to receive(:new).with('My first note', 'This is my first note').and_return(first_note)
+        allow(note_class).to receive(:new).with('My second note', 'This is my second note').and_return(second_note)
       end
 
       it 'adds a note to the saved notes property array' do
         notebook.add_note('My first note', 'This is my first note')
         expect(notebook.saved_notes).to eq [first_note]
+      end
+
+      it 'adds more than one note to the saved notes property array' do
+        notebook.add_note('My first note', 'This is my first note')
+        notebook.add_note('My second note', 'This is my second note')
+        expect(notebook.saved_notes).to eq [first_note, second_note]
       end
 
       it 'confirms that the note have been saved' do
