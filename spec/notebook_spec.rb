@@ -7,7 +7,6 @@ describe Notebook do
   let(:second_note) { double :second_note, title: 'My second note', body: 'This is my second note' }
   let(:note_printer) { double :note_printer, print_note_titles: 'Note titles list', print_selected_note: 'Note title and body' }
 
-  context 'when adding one note' do
     describe '#add_note' do
       before do
         allow(note_class).to receive(:new).with('My first note', 'This is my first note').and_return(first_note)
@@ -21,15 +20,6 @@ describe Notebook do
       it 'confirms that the note have been saved' do
         expect(notebook.add_note('My first note', 'This is my first note')).to eq 'Note saved!'
       end
-    end
-  end
-
-  context 'after adding two notes' do
-    before do
-      allow(note_class).to receive(:new).with('My first note', 'This is my first note').and_return(first_note)
-      allow(note_class).to receive(:new).with('My second note', 'This is my second note').and_return(second_note)
-      notebook.add_note('My first note', 'This is my first note')
-      notebook.add_note('My second note', 'This is my second note')
     end
 
     describe '#see_title_list' do
@@ -54,5 +44,4 @@ describe Notebook do
         notebook.select_note(1)
       end
     end
-  end
 end
