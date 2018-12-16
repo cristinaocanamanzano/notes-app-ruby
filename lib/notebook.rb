@@ -1,5 +1,5 @@
-require 'note'
-require 'note_printer'
+require_relative 'note'
+require_relative 'note_printer'
 
 class Notebook
   attr_reader :saved_notes, :note_class, :note_printer
