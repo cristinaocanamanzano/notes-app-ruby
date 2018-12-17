@@ -3,9 +3,9 @@ require 'note'
 describe Note do
   subject(:note) { described_class.new('My note', 'This is my note') }
 
-  describe 'title' do
+  describe '#show_title' do
     it 'returns the note title' do
-      expect(note.title).to eq 'My note'
+      expect(note.show_title).to eq 'My note'
     end
   end
 
