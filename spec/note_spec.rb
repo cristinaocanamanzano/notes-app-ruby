@@ -9,9 +9,9 @@ describe Note do
     end
   end
 
-  describe 'body' do
+  describe '#show_content' do
     it 'returns the note body' do
-      expect(note.body).to eq 'This is my note'
+      expect(note.show_content).to eq 'This is my note'
     end
   end
 end
