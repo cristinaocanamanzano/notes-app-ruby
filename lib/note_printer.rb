@@ -7,7 +7,7 @@ class Note_printer
   def print_selected_note(notes, selected_note)
     raise 'That note does not exit, please select another number' unless note_exists?(notes, selected_note)
     puts notes[note_index(selected_note)].show_title
-    puts notes[note_index(selected_note)].body
+    puts notes[note_index(selected_note)].show_content
   end
 
   private
