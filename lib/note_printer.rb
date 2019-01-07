@@ -1,6 +1,6 @@
 class Note_printer
   def print_note_titles(notes)
-    raise 'No notes have been saved yet' if notebook_emtpy?(notes)
+    raise 'No notes have been saved yet' if notebook_empty?(notes)
     notes.each { |note| puts note.show_title }
   end
 
@@ -16,7 +16,7 @@ class Note_printer
     selected_note - 1
   end
 
-  def notebook_emtpy?(notes)
+  def notebook_empty?(notes)
     notes.empty?
   end
 
